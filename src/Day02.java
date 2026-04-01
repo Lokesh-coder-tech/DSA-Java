@@ -11,6 +11,7 @@ public class Day02 {
         double f = 5.555; //8 bytes
         char g = 'A';     //2 bytes
         boolean h = true; //1 bit
+        boolean i = false;
 
         System.out.println(a);
         System.out.println(b);
@@ -20,5 +21,6 @@ public class Day02 {
         System.out.println(f);
         System.out.println(g);
         System.out.println(h);
+        System.out.println(i);
     }
 }
