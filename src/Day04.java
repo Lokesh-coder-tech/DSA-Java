@@ -13,5 +13,7 @@ public class Day04 {
         System.out.println("Subtraction of the numbers: " + (number - number2 - number3));
         System.out.println("Multiplication of the numbers: " + (number * number2 * number3));
         System.out.println("Division of the numbers: " + (number / number2 / number3));
+
+        sc.close();
     }
 }
