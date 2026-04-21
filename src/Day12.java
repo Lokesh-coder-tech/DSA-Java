@@ -7,7 +7,7 @@
 //    int age;
 //
 //    void study(){
-//        System.out.println(name + " is a stuednt");
+//        System.out.println(name + " is a student");
 //        System.out.println(name + " age is " + age);
 //    }
 //}
