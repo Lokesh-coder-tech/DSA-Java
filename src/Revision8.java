@@ -1,4 +1,4 @@
-//Class, Object and OOPs concept
+//Class, Object, Constructor and OOPs concept
 
 //class Student{
 //    String name;
@@ -78,6 +78,55 @@
 //    }
 //};
 
+//Constructor
+//class Student{
+//    String name;
+//    int age;
+//
+//    Student(){
+//        System.out.println("Constructor called");
+//    }
+//
+//    Student(){
+//        name = "Lokesh";
+//        age = 21;
+//    }
+//
+//    Student(String n, int a){
+//        name = n;
+//        age = a;
+//    }
+//
+//      Student(){
+//          name = "Unknown";
+//          age = 0;
+//      }
+//      Student(String name, int age){
+//          this.name = name;
+//          this.age = age;
+//      }
+//
+//
+//}
+
+//class Bike{
+//    String name;
+//    int price;
+//    String model;
+//
+//    Bike(String name, int price, String model){
+//        this.name = name;
+//        this.price = price;
+//        this.model = model;
+//    }
+//    void display(){
+//        System.out.println("Name: " + name);
+//        System.out.println("Price: " + price);
+//        System.out.println("Model: " + model);
+//    }
+//}
+
+
 public class Revision8 {
     public static void main(String[] args) {
 //        Student s1 = new Student();
@@ -141,6 +190,25 @@ public class Revision8 {
 
 //          Dog d = new Dog();
 //          d.sound();
+
+//        Student s = new Student();
+//        Student s1 = new Student("Lucky", 21);
+//        Student s2 = new Student("Lokesh", 20);
+//        System.out.println(s.name);
+//        System.out.println(s.age);
+//        System.out.println(s1.name);
+//        System.out.println(s1.age);
+//        System.out.println(" ");
+//        System.out.println(s2.name);
+//        System.out.println(s2.age);
+
+//        System.out.println("Car enquiry--------->");
+//        Bike b = new Bike("Alto", 700000, "750" );
+//        Bike b1 = new Bike("Scorpio", 2000000, "N" );
+//        b.display();
+//        System.out.println(" ");
+//        b1.display();
+
 
     }
 }
