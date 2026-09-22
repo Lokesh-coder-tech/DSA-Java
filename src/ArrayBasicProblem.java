@@ -134,13 +134,59 @@ public class ArrayBasicProblem {
 //       }
 
 //Check if Array is sorted or not-------->
-       int arr[]  = {1, 2, 3, 4, 5};
-       int m = arr[0];
-       for(int i=0; i< arr.length; i++){
-           if(arr[i] > m){
-               m++;
-           }
-        };
+     //Brute-force
+//      int arr[] = {1, 2, 7, 4, 5};
+//      if(arr[0] < arr[1] && arr[1] < arr[2] && arr[2] < arr[3] && arr[3] < arr[4]){
+//          System.out.println("Array is sorted");
+//      }else{
+//          System.out.println("Array is not sorted");
+//      }
 
+      //Optimised-Approach
+//        int arr[] = {1, 7, 3, 4, 5};
+//        boolean sorted = true;
+//        for(int i = 0; i < arr.length-1; i++){
+//            if(arr[i] > arr[i + 1]) {
+//               sorted = false;
+//               break;
+//            }
+//        }
+//        if(sorted){
+//            System.out.println("array is sorted");
+//        }else{
+//            System.out.println("Array is not sorted");
+//        }
+
+//Find Second largest element---------->
+//        int arr[] = {10, 7, 25, 99, 45, 65};
+//        int max = arr[0];
+//        int secondMax = Integer.MIN_VALUE;
+//        for(int i=0; i< arr.length; i++){
+//            if(arr[i] > max){
+//                secondMax = max;
+//                max = arr[i];
+//            } else if (secondMax < arr[i] && arr[i] < max) {
+//                secondMax = arr[i];
+//            };
+//        }
+//        System.out.println("largest element: " + max);
+//        System.out.println("Second largest element: " + secondMax);
+
+//Find duplicates----------->
+//        int arr[] = {1, 2, 3, 4, 4, 5};
+//        int count = 0;
+//        int duplicate = -1;
+//        for(int i=0; i< arr.length; i++){
+//            for(int j=i+1; j< arr.length; j++){
+//                if(arr[i] == arr[j]){
+//                    count++;
+//                    duplicate = arr[j];
+//                    System.out.println("Duplicate number is: " + duplicate);
+//                }
+//            }
+//        }
+//        String v = (count >= 1) ?"Duplicate": "Not Duplicate";
+//        System.out.println(v);
+//
     }
 }
