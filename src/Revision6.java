@@ -16,7 +16,7 @@ public class Revision6 {
 //        System.out.println(s.substring(1, 4));
             //equals()
 //        String a = "Namaste";
-//        String b = "Namaste";
+//        String b = "Namastei";
 //        System.out.println(b.equals(a));
             //toUpperCase(), toLowerCase()
 //        String l = "lucky";
@@ -27,21 +27,49 @@ public class Revision6 {
 //        System.out.println(l.contains("ue"));
               //indexOf()
 //        System.out.println(l.indexOf('y'));
+              //replace
+//        System.out.println(l.replace('c', 'v'));
+              //Split
+//        String str = "Lokesh Sharma";
+//        String[] arr = str.split(" ");
+//        for(String ptr : arr){
+//            System.out.println(str);
+//        };
+
+//        String s = "a-b-c-d";
+//        String[] arr = s.split("-");
+//        for(String str : arr){
+//            System.out.println(str);
+//        }
+
+//        String s1 = "p,q,r,s,t";
+//        String[] arr = s1.split(",");
+//        for(String str : arr) {
+//            System.out.println(str);
+//        }
+
+        //Cpncatenation
+//        String s1 = "Dhur";
+//        String s2 = "andhar";
+//        System.out.println(s1.concat(s2));
 
               //String is Immutable
 //        String s = "Hello";
 //        s = s.concat(" World");
 //        System.out.println(s);
+//        s = s + "d";     //new object
+//        System.out.println(s);
 
-             //String-Builder
+             //String-Builder(Mutable)
 //        StringBuilder sb = new StringBuilder("Hollo");
+
 //        sb.append(" world");
 //        sb.reverse();
-//        sb.setCharAt(1,'e');
+//        sb.setCharAt(1, 'e');
 //        System.out.println(sb);
 
 //        String sg = "Lakshya";
-
+//
 //        System.out.println(sg.charAt(0));
 //        System.out.println(sg.charAt(1));
 //        System.out.println(sg.charAt(2));
