@@ -26,7 +26,7 @@ public class StringProblems {
 //        System.out.println("Number of character/digits: " + digits);
 
         //Rverse a String witohut any Built-in reverse function--------------->
-//        String str = "Hello";
+//        String str = "Hello"; n
 //        StringBuilder sb = new StringBuilder(str);
 //        int left = 0;
 //        int right = str.length() - 1;
@@ -40,5 +40,34 @@ public class StringProblems {
 //        };                                //tc: o(n), sc: o(n)
 //        System.out.println(sb);
 
+        //Check Palindrome----------------->
+//        String str = "madam";
+//        int left = 0;
+//        int right = str.length()-1;
+//        boolean isPalindrome = true;
+//        while(left < right){
+//            if(str.charAt(left) != str.charAt(right)){
+//                isPalindrome = false;
+//                break;
+//            }
+//            left++;
+//            right--;                  //TC: O(n), SC: O(1)
+//        }
+//        if(isPalindrome ){
+//            System.out.println("Yes it is a palindrome");
+//        }else{
+//            System.out.println("No it is not a palindrome");
+//        }
+
+        //Remove Duplicate---------->
+//        String str = "programming";
+//        StringBuilder result = new StringBuilder();
+//        for(int i = 0; i<str.length(); i++){
+//          char ch = str.charAt(i);
+//          if(result.toString().indexOf(ch) == -1){
+//             result.append(ch);
+//          }                             //TC: O(n²), SC: O(n)
+//        }
+//        System.out.println(result);
     }
 }
