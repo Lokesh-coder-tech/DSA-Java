@@ -26,7 +26,7 @@ public class StringProblems {
 //        System.out.println("Number of character/digits: " + digits);
 
         //Rverse a String witohut any Built-in reverse function--------------->
-//        String str = "Hello"; n
+//        String str = "Hello";
 //        StringBuilder sb = new StringBuilder(str);
 //        int left = 0;
 //        int right = str.length() - 1;
@@ -69,5 +69,36 @@ public class StringProblems {
 //          }                             //TC: O(n²), SC: O(n)
 //        }
 //        System.out.println(result);
+
+        //Reverse each word of a sentence---------->
+//        String src = "I love coding";
+//        StringBuilder sb = new StringBuilder(src);
+//        int wordStart = 0;
+//        for(int i=0; i<sb.length(); i++){
+//            if(sb.charAt(i) == ' '){
+//                int left = wordStart;
+//                int right = i - 1;
+//
+//                while(left < right){
+//                    char temp = sb.charAt(left);
+//                    sb.setCharAt(left, sb.charAt(right));
+//                    sb.setCharAt(right, temp);
+//                    left++;
+//                    right--;
+//                }
+//                wordStart = i + 1;
+//            }
+//        }
+//        int left = wordStart;
+//        int right = sb.length() - 1;
+//        while(left < right){
+//            char temp = sb.charAt(left);
+//            sb.setCharAt(left, sb.charAt(right));
+//            sb.setCharAt(right, temp);                    //TC: O(n), SC: O(n)
+//            left++;
+//            right--;
+//        }
+//
+//        System.out.println(sb);
     }
 }
