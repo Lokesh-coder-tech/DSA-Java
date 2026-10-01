@@ -100,5 +100,24 @@ public class StringProblems {
 //        }
 //
 //        System.out.println(sb);
+
+        //Compress a string------------->
+//        String str = "aaabbcccd";
+//        StringBuilder result = new StringBuilder(); //a3b2c3d1
+//        for(int i=0; i<str.length(); i++){
+//            char ch = str.charAt(i);
+//            int count = 1;
+//            while(i+1 < str.length() && str.charAt(i+1) == ch){
+//                count++;
+//                i++;
+//            }
+//            result.append(ch);
+//            result.append(count);       //TC: O(n), SC: O(n)
+//        }
+//        System.out.println(result);
+
+
+
+
     }
 }
