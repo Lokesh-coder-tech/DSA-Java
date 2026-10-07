@@ -56,6 +56,52 @@ public class LinkedList {
             current.next = null;
         }
 
+        void deleteByValue(int value){
+            if(head == null){
+                return;
+            }
+            if(head.data == value){
+                head = head.next;
+                return;
+            }
+            Node current = head;
+
+            while(current.next != null && current.next.data != value){
+                current = current.next;
+            }
+            if(current.next != null){
+                current.next = current.next.next;
+            }
+        }
+
+        boolean search(int value){
+           Node current = head;
+           while(current != null){
+              if(current.data == value){
+                  return true;
+              }
+              current = current.next;
+           }
+           return false;
+        }
+
+        void addAtPosition(int data, int position){
+            Node newNode = new Node(data);
+
+            if(position == 0){
+                newNode.next = head;
+                head = newNode;
+                return;
+            }
+            Node current = head;
+            for(int i=0; i<position-1; i++ ){
+                current = current.next;
+            }
+
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+
         void printList(){
           Node current = head;
 
@@ -79,10 +125,27 @@ public class LinkedList {
 
        list.printList();
 
-       list.deleteFirst();
-       list.printList();
+        list.addAtPosition(2, 0);
+        list.printList();
 
-       list.deleteLast();
-       list.printList();
+//       if(list.search(40)){
+//           System.out.println("Found");
+//       }
+//       else{
+//           System.out.println("Not found");
+//       }
+
+
+//       list.deleteByValue(20);
+//       list.printList();
+
+//        list.deleteByValue(50);
+//        list.printList();
+
+//       list.deleteFirst();
+//       list.printList();
+//
+//       list.deleteLast();
+//       list.printList();
     }
 }
