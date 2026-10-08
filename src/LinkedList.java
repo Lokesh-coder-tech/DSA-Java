@@ -114,6 +114,8 @@ public class LinkedList {
     }
 
 
+
+
     public static void main(String[] args) {
        Champak list = new Champak();
        list.addLast(10);
