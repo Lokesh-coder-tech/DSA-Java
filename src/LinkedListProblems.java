@@ -40,6 +40,34 @@ public class LinkedListProblems {
             head = prev;
         }
 
+        Node middleOfTheLikedlist(){
+            Node slow = head;
+            Node fast = head;
+
+            while(fast != null && fast.next != null ){
+                slow = slow.next;
+                fast = fast.next.next;     //TC=O(n), SC=O(1)
+            }
+            return slow;
+
+        }
+
+        boolean cycleDetect(){
+            Node slow = head;
+            Node fast = head;
+
+            while(fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+
+                if(slow == fast){
+                    return true;     //TC=O(n), SC=O(1)
+                }
+            }
+            return false;
+        }
+
+
         void printList(){
            Node current = head;
 
@@ -58,10 +86,19 @@ public class LinkedListProblems {
         list.addLast(20);
         list.addLast(30);
         list.addLast(40);
+        list.addLast(50);
 
         list.printList();
+
+        System.out.println(list.cycleDetect());
+
+        Node middle = list.middleOfTheLikedlist();
+        System.out.println("Middle element of the linked list: " + middle.data);
 
         list.reverseLinkedList();
         list.printList();
+
+
+
     }
 }
