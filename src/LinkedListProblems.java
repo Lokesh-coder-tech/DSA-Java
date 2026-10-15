@@ -11,6 +11,7 @@ public class LinkedListProblems {
     }
     static class Daya{
         Node head;
+        Node tail;
 
         void addLast(int data){
             Node newNode = new Node(data);
@@ -108,6 +109,29 @@ public class LinkedListProblems {
            current.next = null;
         }
 
+        void rotate(int k){
+          int length = 0;
+          Node temp = head;
+
+          while(temp != null){
+              length++;
+              tail = temp;
+              temp = temp.next;
+          }
+
+          int steps = length - k;
+          Node current = head;
+
+          for(int i=1; i<steps; i++){
+            current = current.next;
+          }
+          Node newHead = current.next;
+          tail.next = head;              //TC=O(n), SC=O(1)
+          current.next = null;
+          head = newHead;
+
+        }
+
 
         void printList(){
            Node current = head;
@@ -123,20 +147,23 @@ public class LinkedListProblems {
     public static void main(String[] args) {
         Daya list = new Daya();
 
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
-        list.addLast(40);
-        list.addLast(50);
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        list.addLast(5);
 
         list.printList();
 
-        list.createCycle();
-
-        System.out.println(list.cycleDetect());
-
-        list.removeCycle();
-        System.out.println(list.cycleDetect());
+        list.rotate(2);
+        list.printList();
+//        list.createCycle();
+//
+//        System.out.println(list.cycleDetect());
+//
+//        list.removeCycle();
+//        System.out.println(list.cycleDetect());
+////
 //
 //        Node middle = list.middleOfTheLikedlist();
 //        System.out.println("Middle element of the linked list: " + middle.data);
