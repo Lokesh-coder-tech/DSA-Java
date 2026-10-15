@@ -119,14 +119,25 @@ public class LinkedListProblems {
               temp = temp.next;
           }
 
+          if(head == null || head.next == null){
+              return;
+          }
+          k = k % length;
+
+          if(k == 0){
+              return;
+          }
+
           int steps = length - k;
+
           Node current = head;
 
           for(int i=1; i<steps; i++){
-            current = current.next;
+              current = current.next;
           }
+
           Node newHead = current.next;
-          tail.next = head;              //TC=O(n), SC=O(1)
+          tail.next = head;
           current.next = null;
           head = newHead;
 
