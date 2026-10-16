@@ -143,6 +143,45 @@ public class LinkedListProblems {
 
         }
 
+        boolean checkPalindrome(){
+            Node slow = head;
+            Node fast = head;
+
+            if(head == null || head.next == null){
+                return true;
+            }
+
+            while(fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            Node left = head;
+            Node right = slow.next;
+
+            slow.next = null;
+
+            Node prev = null;
+            Node current = right;
+            Node next = null;
+
+            while(current != null){
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            right = prev;
+
+            while(left != null && right != null){
+                if(left.data != right.data){
+                    return false;
+                }
+                left = left.next;
+                right = right.next;
+            }
+
+            return true;
+        }
 
         void printList(){
            Node current = head;
@@ -161,13 +200,15 @@ public class LinkedListProblems {
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
-        list.addLast(4);
-        list.addLast(5);
+        list.addLast(2);
+        list.addLast(1);
 
         list.printList();
 
-        list.rotate(2);
-        list.printList();
+        System.out.println(list.checkPalindrome());
+
+//        list.rotate(2);
+//        list.printList();
 //        list.createCycle();
 //
 //        System.out.println(list.cycleDetect());
