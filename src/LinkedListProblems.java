@@ -183,6 +183,31 @@ public class LinkedListProblems {
             return true;
         }
 
+
+        Node mergeSortedList(Node head1, Node head2 ){
+
+            Node dummy = new Node(0);
+            Node current = dummy;
+            Node list1 = head1;
+            Node list2 = head2;
+
+            while(list1 != null && list2 != null){
+                if(list1.data < list2.data){
+                    current.next = list1;
+                    list1 = list1.next;
+                    current = current.next;
+                }else{
+                    current.next = list2;
+                    list2 = list2.next;
+                    current = current.next;
+                }
+                                            //TC: O(n+m), SC: O(1)
+            }
+            current.next = (list1 == null)? list2 : list1;
+
+           return dummy.next;
+        }
+
         void printList(){
            Node current = head;
 
@@ -194,18 +219,54 @@ public class LinkedListProblems {
         }
     }
 
+      static class Tappu{
+        Node head;
+
+        void addLast(int data){
+            Node newNode = new Node(data);
+
+            if(head == null){
+                head = newNode;
+                return;
+            }
+            Node current = head;
+            while(current.next != null){
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+
+        void printList(){
+            Node current = head;
+
+            while(current != null){
+                System.out.print(current.data + " -> ");
+                current = current.next;
+            }
+            System.out.println("null");
+        }
+    }
+
     public static void main(String[] args) {
         Daya list = new Daya();
+        Tappu list2 = new Tappu();
 
         list.addLast(1);
-        list.addLast(2);
         list.addLast(3);
-        list.addLast(2);
-        list.addLast(1);
+        list.addLast(5);
 
         list.printList();
 
-        System.out.println(list.checkPalindrome());
+        list2.addLast(2);
+        list2.addLast(3);
+        list2.addLast(6);
+
+        list2.printList();
+
+        list.mergeSortedList(list.head, list2.head);
+        list.printList();
+
+//        System.out.println(list.checkPalindrome());
 
 //        list.rotate(2);
 //        list.printList();
