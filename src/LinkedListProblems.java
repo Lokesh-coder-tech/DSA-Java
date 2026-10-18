@@ -208,6 +208,24 @@ public class LinkedListProblems {
            return dummy.next;
         }
 
+        void removeNthFromEnd(int n){
+          Node temp = new Node(0);
+          temp.next = head;
+          Node slow = temp;
+          Node fast = temp;
+
+          for(int i=0; i<n; i++){
+              fast = fast.next;
+          }
+          while(fast.next != null){
+              slow = slow.next;
+              fast = fast.next;
+          }
+          slow.next = slow.next.next;
+          head = temp.next;            //TC:O(n), SC:O(1)
+
+        }
+
         void printList(){
            Node current = head;
 
@@ -252,19 +270,24 @@ public class LinkedListProblems {
         Tappu list2 = new Tappu();
 
         list.addLast(1);
+        list.addLast(2);
         list.addLast(3);
+        list.addLast(4);
         list.addLast(5);
 
         list.printList();
 
-        list2.addLast(2);
-        list2.addLast(3);
-        list2.addLast(6);
-
-        list2.printList();
-
-        list.mergeSortedList(list.head, list2.head);
+        list.removeNthFromEnd(5);
         list.printList();
+
+//        list2.addLast(2);
+//        list2.addLast(3);
+//        list2.addLast(6);
+//
+//        list2.printList();
+//
+//        list.mergeSortedList(list.head, list2.head);
+//        list.printList();
 
 //        System.out.println(list.checkPalindrome());
 
