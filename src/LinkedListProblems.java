@@ -226,6 +226,17 @@ public class LinkedListProblems {
 
         }
 
+        Node getIntersectionNode(Node headA, Node headB){
+            Node a = headA;
+            Node b = headB;
+
+            while(a != b){
+                a = (a == null) ? headB : a.next;
+                b = (b == null) ? headA : b.next;
+            }
+            return a;
+        }
+
         void printList(){
            Node current = head;
 
@@ -266,23 +277,23 @@ public class LinkedListProblems {
     }
 
     public static void main(String[] args) {
-        Daya list = new Daya();
-        Tappu list2 = new Tappu();
+          Daya list = new Daya();
+//        Tappu list2 = new Tappu();
 
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(3);
-        list.addLast(4);
-        list.addLast(5);
+//        list.addLast(1);
+//        list.addLast(2);
+//        list.addLast(3);
+//        list.addLast(6);
+//        list.addLast(7);
+//
+//        list.printList();
 
-        list.printList();
+//        list.removeNthFromEnd(5);
+//        list.printList();
 
-        list.removeNthFromEnd(5);
-        list.printList();
-
-//        list2.addLast(2);
-//        list2.addLast(3);
-//        list2.addLast(6);
+//        list2.addLast(4);
+//        list2.addLast(5);
+//
 //
 //        list2.printList();
 //
@@ -307,6 +318,26 @@ public class LinkedListProblems {
 //        list.reverseLinkedList();
 //        list.printList();
 
+
+        Node headA = new Node(1);
+        headA.next = new Node(2);  //first list
+
+        Node headB = new Node(4);
+        headB.next = new Node(5);  //Second list
+
+        Node common = new Node(6);
+        common.next = new Node(7); //common list
+
+        headA.next.next = common;
+        headB.next.next = common;        //Connect common list with both the list
+
+        Node intersection = list.getIntersectionNode(headA, headB);
+
+        if(intersection != null){
+            System.out.println("Intersection found at: " + intersection.data);
+        }else{
+            System.out.println("Oops! No intersection found");
+        }
 
 
     }
