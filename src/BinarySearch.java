@@ -20,13 +20,35 @@ public class BinarySearch {
         return -1;
     }
 
+    static int searchInsert(int[] arr, int target){
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            if(target == arr[mid]){
+                return mid;
+            } else if (target > arr[mid]) {
+                low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+        }
+        return low;
+    }
+
     public static void main(String[] args) {
-       int e = searchAnElement(4);
-       if(e != -1){
-           System.out.println("Element found at index: " + e);
-       }else{
-           System.out.println("Element not found");
-       }
+//       int e = searchAnElement(4);
+//       if(e != -1){
+//           System.out.println("Element found at index: " + e);
+//       }else{
+//           System.out.println("Element not found");
+//       }
+
+        int[] arr = {10, 20, 30, 40, 50};
+        int index = searchInsert(arr, 35);
+        System.out.println("The element can be insert at " + index + " index");
+
 
     }
 }
