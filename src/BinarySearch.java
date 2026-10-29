@@ -37,6 +37,40 @@ public class BinarySearch {
         return low;
     }
 
+    static int lowerBound(int[] arr, int target){
+        int low = 0;
+        int high = arr.length - 1;
+        int ans = arr.length;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            if(arr[mid] >= target){
+                ans = mid;
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        return ans;
+    }
+
+    static int upperBound(int[] arr, int target){
+        int low = 0;
+        int high = arr.length - 1;
+        int ans = arr.length;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            if(arr[mid] <= target){
+                ans = mid;
+                low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
 //       int e = searchAnElement(4);
 //       if(e != -1){
@@ -45,9 +79,15 @@ public class BinarySearch {
 //           System.out.println("Element not found");
 //       }
 
-        int[] arr = {10, 20, 30, 40, 50};
-        int index = searchInsert(arr, 35);
-        System.out.println("The element can be insert at " + index + " index");
+//        int[] arr = {10, 20, 30, 40, 50};
+//        int index = searchInsert(arr, 35);
+//        System.out.println("The element can be insert at " + index + " index");
+
+        int[] arr = {2,4,6,8,10};
+        int index = lowerBound(arr, 5);
+        int index2 = upperBound(arr, 9);
+        System.out.println("Lower bound found at: " + index);
+        System.out.println("Upper bound found at: " + index2);
 
 
     }
