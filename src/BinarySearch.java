@@ -61,7 +61,7 @@ public class BinarySearch {
 
         while(low <= high){
             int mid = low + (high - low)/2;
-            if(arr[mid] <= target){
+            if(arr[mid] > target){
                 ans = mid;
                 low = mid + 1;
             }else{
@@ -69,6 +69,17 @@ public class BinarySearch {
             }
         }
         return ans;
+    }
+
+    static int[] firstAndLastOccurrence(int[] arr, int target){
+        int first = lowerBound(arr, target);
+
+        if(first == arr.length || arr[first] != target){
+            return new int[]{-1, -1};
+        }
+        int last = upperBound(arr, target)-1;
+
+        return new int[]{first, last};
     }
 
     public static void main(String[] args) {
@@ -83,11 +94,19 @@ public class BinarySearch {
 //        int index = searchInsert(arr, 35);
 //        System.out.println("The element can be insert at " + index + " index");
 
-        int[] arr = {2,4,6,8,10};
-        int index = lowerBound(arr, 5);
-        int index2 = upperBound(arr, 9);
-        System.out.println("Lower bound found at: " + index);
-        System.out.println("Upper bound found at: " + index2);
+//        int[] arr = {2,4,6,8,10};
+//        int index = lowerBound(arr, 5);
+//        int index2 = upperBound(arr, 9);
+//        System.out.println("Lower bound found at: " + index);
+//        System.out.println("Upper bound found at: " + index2);
+
+        int[] arr = {1, 2, 4, 4, 4, 4, 6, 8};
+        int target = 4;
+
+        int[] result = firstAndLastOccurrence(arr, target);
+
+        System.out.println("[" + result[0] + ", " + result[1] + "]");
+
 
 
     }
