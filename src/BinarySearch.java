@@ -63,9 +63,9 @@ public class BinarySearch {
             int mid = low + (high - low)/2;
             if(arr[mid] > target){
                 ans = mid;
-                low = mid + 1;
-            }else{
                 high = mid - 1;
+            }else{
+                low = mid + 1;
             }
         }
         return ans;
@@ -77,9 +77,24 @@ public class BinarySearch {
         if(first == arr.length || arr[first] != target){
             return new int[]{-1, -1};
         }
-        int last = upperBound(arr, target)-1;
+        int last = upperBound(arr, target)-1;  //TC=O(log n), SC=O(1)
 
         return new int[]{first, last};
+    }
+
+    static int findPeakElement(int[] arr){
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low < high){
+            int mid = low + (high-low)/2;
+            if(arr[mid] < arr[mid+1]){
+                low = mid + 1;
+            }else{
+                high = mid;            //TC=O(log n), SC=O(1)
+            }
+        }
+        return low;
     }
 
     public static void main(String[] args) {
@@ -100,12 +115,17 @@ public class BinarySearch {
 //        System.out.println("Lower bound found at: " + index);
 //        System.out.println("Upper bound found at: " + index2);
 
-        int[] arr = {1, 2, 4, 4, 4, 4, 6, 8};
-        int target = 4;
+//        int[] arr = {1, 2, 4, 6, 8};
+//        int target = 4;
+//
+//        int[] result = firstAndLastOccurrence(arr, target);
+//
+//        System.out.println("[" + result[0] + ", " + result[1] + "]");
 
-        int[] result = firstAndLastOccurrence(arr, target);
+        int[] arr = {1,2,3,4,3,2};
+        int result = findPeakElement(arr);
 
-        System.out.println("[" + result[0] + ", " + result[1] + "]");
+        System.out.println("Peak element found at index: " + result);
 
 
 
