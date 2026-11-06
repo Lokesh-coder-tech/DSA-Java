@@ -97,6 +97,24 @@ public class BinarySearch {
         return low;
     }
 
+    static int singleElement(int[] arr){
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low < high){
+            int mid = low + (high-low)/2;
+            if(mid % 2 == 1){
+                mid--;
+            }
+            if(arr[mid] == arr[mid+1]){
+                low = mid + 2;
+            }else{
+                high = mid;
+            }                              //TC=O(n), SC=O(1)
+        }
+        return arr[low];
+    }
+
     public static void main(String[] args) {
 //       int e = searchAnElement(4);
 //       if(e != -1){
@@ -122,11 +140,14 @@ public class BinarySearch {
 //
 //        System.out.println("[" + result[0] + ", " + result[1] + "]");
 
-        int[] arr = {1,2,3,4,3,2};
-        int result = findPeakElement(arr);
+//        int[] arr = {1,2,3,4,3,2};
+//        int result = findPeakElement(arr);
+//
+//        System.out.println("Peak element found at index: " + result);
 
-        System.out.println("Peak element found at index: " + result);
-
+        int[] arr = {1,2,2,3,3,4,4};
+        int result = singleElement(arr);
+        System.out.println(result);
 
 
     }
