@@ -115,6 +115,33 @@ public class BinarySearch {
         return arr[low];
     }
 
+    static int searchInRotatedSorted(int[] arr, int target){
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low <= high){
+            int mid = low + (high-low)/2;
+            if(arr[mid] == target){
+                return mid;
+            }
+            if(arr[low] <= arr[mid]){
+                if(arr[low] <= target && target < arr[mid]){
+                   high = mid - 1;
+                }else{                  //TC=O(log n), SC=O(1)
+                    low = mid + 1;
+                }
+
+            }else{
+                if(target > arr[mid] && target <= arr[high]){
+                    low = mid + 1;
+                }else{
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
 //       int e = searchAnElement(4);
 //       if(e != -1){
@@ -145,9 +172,15 @@ public class BinarySearch {
 //
 //        System.out.println("Peak element found at index: " + result);
 
-        int[] arr = {1,2,2,3,3,4,4};
-        int result = singleElement(arr);
+//        int[] arr = {1,2,2,3,3,4,4};
+//        int result = singleElement(arr);
+//        System.out.println(result);
+
+        int[] arr = {4,5,6,7,0,1,2};
+        int target = 2;
+        int result = searchInRotatedSorted(arr, target);
         System.out.println(result);
+
 
 
     }
