@@ -110,7 +110,7 @@ public class BinarySearch {
                 low = mid + 2;
             }else{
                 high = mid;
-            }                              //TC=O(n), SC=O(1)
+            }                              //TC=O(log n), SC=O(1)
         }
         return arr[low];
     }
