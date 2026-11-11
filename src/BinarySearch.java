@@ -97,7 +97,7 @@ public class BinarySearch {
         return low;
     }
 
-    static int singleElement(int[] arr){
+    static int singleElement(int[] arr)                  {
         int low = 0;
         int high = arr.length - 1;
 
