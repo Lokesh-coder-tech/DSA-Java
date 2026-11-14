@@ -22,10 +22,23 @@ public class Sorting {
                 if(arr[j] < arr[minValue]){
                     minValue = j;
                 }
-            }                         //TC=O(n), SC=O(1)
+            }                         //TC=O(n^2), SC=O(1)
             int temp = arr[i];
             arr[i] = arr[minValue];
             arr[minValue] = temp;
+        }
+    }
+
+    static void insertionSort(int[] arr){
+        for(int i=1; i< arr.length; i++){
+            int key = arr[i];
+            int j = i-1;
+
+            while(j>=0 && arr[j] > key){
+                arr[j+1] = arr[j];
+                j--;
+            }                             //TC=O(n^2) SC=O(1)
+            arr[j+1] = key;
         }
     }
 
@@ -38,7 +51,12 @@ public class Sorting {
 //     }
 //     System.out.print("]");
 
-        selectionSort(arr);
+//        selectionSort(arr);
+//        for(int i=0; i< arr.length; i++){
+//            System.out.print(arr[i] + ", ");
+//        }
+
+        insertionSort(arr);
         for(int i=0; i< arr.length; i++){
             System.out.print(arr[i] + ", ");
         }
