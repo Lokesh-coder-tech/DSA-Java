@@ -39,6 +39,28 @@ public class Recursion {
         return ans1 + ans2;
     }
 
+    static int sumOfDigits(int n){
+        if(n == 0) return 0;
+        int d = n % 10;
+        n = n/10;
+        int ans = sumOfDigits(n);
+        return ans + d;
+    }
+
+    static int singleDigit(int n){
+        if(n < 10){
+            return n;
+        }
+        return singleDigit(sumOfDigits(n));
+    }
+
+    static String removeChar(String s, int n, int i, char c){
+        if(i==n) return "";
+        String ans = removeChar(s, n, i+1, c);
+        if(s.charAt(i) == c) return ans;
+        return s.charAt(i) + ans;
+    }
+
     public static void main(String[] args) {
 //        System.out.println(find(4));
 
@@ -52,7 +74,12 @@ public class Recursion {
 //            System.out.println("not Palindrome");
 //        }
 
-        System.out.println(fib(3));
+//        System.out.println(fib(3));
+
+//        System.out.println(singleDigit(sumOfDigits(598)));
+
+        String s = "apple";
+        System.out.println(removeChar(s, 5, 0, 'p'));
 
     }
 
