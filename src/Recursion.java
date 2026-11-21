@@ -61,6 +61,12 @@ public class Recursion {
         return s.charAt(i) + ans;
     }
 
+    static boolean arraySorted(int[] a, int i, int n){
+        if(i==n || i==n-1) return true;
+        if(a[i] > a[i+1]) return false;
+        return arraySorted(a, i+1, n);
+    }
+
     public static void main(String[] args) {
 //        System.out.println(find(4));
 
@@ -78,8 +84,11 @@ public class Recursion {
 
 //        System.out.println(singleDigit(sumOfDigits(598)));
 
-        String s = "apple";
-        System.out.println(removeChar(s, 5, 0, 'p'));
+//        String s = "apple";
+//        System.out.println(removeChar(s, 5, 0, 'p'));
+
+        int[] a = {2,7,5,6};
+        System.out.println(arraySorted(a, 0, 4));
 
     }
 
