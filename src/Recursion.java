@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Recursion {
 
     static int find(int n){
@@ -67,6 +69,31 @@ public class Recursion {
         return arraySorted(a, i+1, n);
     }
 
+    static void combinationSum(int[] arr, int n, int idx, List<Integer> diary,
+                              List<List<Integer>> res, int sum, int target ){
+        //Base case
+        if(idx == n){
+            if(sum == target) res.add(new ArrayList<>(diary));
+            return;
+        }
+        //choice1-Exclude current element
+        combinationSum(arr, n, idx+1, diary, res, sum, target);
+
+        //choice2-Include current element
+        if(arr[idx] + sum <=target){
+            diary.add(arr[idx]);
+            sum = sum + arr[idx];
+
+            //same index because repetition is allowed
+            combinationSum(arr, n, idx, diary, res, sum, target);
+
+            //Backtracking
+            diary.remove(diary.size()-1);
+            sum = sum - arr[idx];
+        }
+
+    }
+
     public static void main(String[] args) {
 //        System.out.println(find(4));
 
@@ -87,8 +114,17 @@ public class Recursion {
 //        String s = "apple";
 //        System.out.println(removeChar(s, 5, 0, 'p'));
 
-        int[] a = {2,7,5,6};
-        System.out.println(arraySorted(a, 0, 4));
+//        int[] a = {2,7,5,6};
+//        System.out.println(arraySorted(a, 0, 4));
+
+        int[] arr = {2,3,6,7};
+        int n = arr.length;
+        List<Integer> diary = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        combinationSum(arr, n, 0, diary, res, 0, 7 );
+
+        System.out.println(res);
+
 
     }
 
